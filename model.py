@@ -44,9 +44,8 @@ class TransformerBlock(nn.Module):
         x = x + self.mlp(self.ln2(x))
         return x
 
-# --- Veganom Module with RoPE Encoding for Sequence Input ---
 
-class Veganom(nn.Module):
+class Model(nn.Module):
     def __init__(self, state_dim, model_dim, num_layers, num_heads, hidden_dim, dropout=0.1):
         """
         state_dim: Dimensionality of input and output state. Must be even.
@@ -141,8 +140,8 @@ if __name__ == "__main__":
     num_heads = 8
     hidden_dim = 256
 
-    # Create the Veganom model.
-    model = Veganom(state_dim, model_dim, num_layers, num_heads, hidden_dim)
+    # Create the model.
+    model = Model(state_dim, model_dim, num_layers, num_heads, hidden_dim)
 
     # Example inputs:
     # last_state: (B, T, state_dim)
